@@ -10,4 +10,9 @@ class PaginaController extends Controller
     {
         return view('contato');
     }
+
+    public function admin()
+    {
+        return view('base-admin');
+    }
 }

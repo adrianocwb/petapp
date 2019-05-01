@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/contato', "PaginaController@contato");
+Route::get('/admin', "PaginaController@admin");
+Route::get('/admin/funcionarios', "FuncionarioController@listar");
