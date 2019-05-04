@@ -13,6 +13,6 @@ class PaginaController extends Controller
 
     public function admin()
     {
-        return view('base-admin');
+        return view('admin.base-admin');
     }
 }

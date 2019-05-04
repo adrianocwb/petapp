@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/app.css" rel="stylesheet"/>
+    <link href="/css/app.css" rel="stylesheet">
 
 
     <style>
@@ -34,9 +34,11 @@
     <link href="dashboard.css" rel="stylesheet">
 </head>
 <body>
+
 <nav class="navbar navbar-dark static-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">PetApp</a>
-        <ul class="navbar-nav px-3">
+
+    <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <a class="nav-link" href="#">Sign out</a>
         </li>
@@ -49,7 +51,7 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="/admin">
                             <span data-feather="home"></span>
                             Painel <span class="sr-only">(current)</span>
                         </a>
@@ -61,53 +63,32 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/admin/servicos">
                             <span data-feather="shopping-cart"></span>
                             Serviços
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/admin/funcionarios">
                             <span data-feather="users"></span>
                             Profissionais
                         </a>
                     </li>
-                </ul>
 
+                </ul>
 
             </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-            <h2>Agendamentos do dia</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>Data e Hora</th>
-                        <th>Serviço</th>
-                        <th>Profissional</th>
-                        <th>Cliente</th>
-                        <th>Valor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>12/12/2012</td>
-                        <td>Banho e Tosa</td>
-                        <td>Maria</td>
-                        <td>Joselito</td>
-                        <td>R$ 50,00</td>
-                    </tr>
+            @yield('principal')
 
-                    </tbody>
-                </table>
-            </div>
         </main>
     </div>
 </div>
 
 <script src="/js/app.js"></script>
+
 </body>
 </html>
