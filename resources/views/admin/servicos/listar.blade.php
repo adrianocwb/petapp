@@ -26,10 +26,10 @@
                 <tr>
                     <td>{{ $servico->id }}</td>
                     <td>{{ $servico->nome }}</td>
-                    <td>{{ $servico->valor }}</td>
+                    <td>{{ $servico->valor  }}</td>
                     <td>
-                        <a href="/admin/funcionarios/editar/{{ $servico["id"] }}" class="btn btn-link">Editar</a>
-                        <a href="/admin/funcionarios/deletar/{{ $servico["id"] }}" class="btn btn-danger">Del</a>
+                        <a href="/admin/servicos/editar/{{ $servico->id }}" class="btn btn-link">Editar</a>
+                        <a href="/admin/servicos/deletar/{{ $servico->id }}" class="btn btn-danger">Del</a>
                     </td>
                 </tr>
             @endforeach

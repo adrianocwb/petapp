@@ -33,3 +33,12 @@ Route::get('/admin/servicos/deletar/{id}', 'ServicosController@deletar');
 
 Route::post('/admin/servicos/cadastro', 'ServicosController@cadastrar');
 Route::post('/admin/servicos/salvar', 'ServicosController@salvar');
+
+Route::get('/admin/agendamento', 'AgendamentoController@listar');
+Route::get('/admin/agendamento/novo', 'AgendamentoController@novo');
+Route::get('/admin/agendamento/editar/{id}', 'AgendamentoController@editar');
+Route::get('/admin/agendamento/deletar/{id}', 'AgendamentoController@deletar');
+
+Route::post('/admin/agendamento/cadastro', 'AgendamentoController@cadastrar');
+Route::post('/admin/agendamento/salvar', 'AgendamentoController@salvar');
+

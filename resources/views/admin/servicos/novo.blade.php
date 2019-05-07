@@ -3,27 +3,28 @@
 
 @section("principal")
 
-    <h2>Cadastrar novo serviço</h2>
+    <h2>Cadastrar novo Serviço</h2>
 
-    <form class="form-horizontal" action="/admin/servicos/cadastro" method ="post">
+    <form class="form-horizontal" action="/admin/servicos/cadastro" method="post">
         <fieldset>
-        @csrf
+            @csrf
 
 
-        <!-- Text input-->
+            <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome">Nome</label>
                 <div class="col-md-4">
                     <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" required="">
 
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="nome">Valor</label>
-                    <div class="col-md-4">
-                        <input id="valor" name="valor" type="text" placeholder="" class="form-control input-md" required="">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nome">Valor</label>
+                <div class="col-md-4">
+                    <input  name="valor" type="text" placeholder="" class="form-control input-md" required="">
 
-                    </div>
+                </div>
             </div>
 
             <!-- Button -->

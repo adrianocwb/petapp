@@ -3,30 +3,39 @@
 
 @section("principal")
 
-    <h2>Editar funcionário</h2>
+    <h2>Editar Serviço</h2>
 
-    <form class="form-horizontal" action="/admin/servicos/salvar" method ="post">
+    <form class="form-horizontal" action="/admin/servicos/salvar" method="post">
         @csrf
+
         <fieldset>
 
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="nome">Id</label>
-                #{{  $dados->id }}
-                <input name="id" type="hidden" value="{{$dados->id}}">
+                    #{{  $dados->id }}
+                <input name="id" type="hidden" value="{{  $dados->id }}">
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="nome">Data de Cadastro</label>
                 {{  $dados->created_at->format('Y-m-d  H:i:s') }}
             </div>
-
+          
 
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome">Nome</label>
                 <div class="col-md-4">
                     <input id="nome" name="nome" type="text" value="{{ $dados->nome }}" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nome">Valor</label>
+                <div class="col-md-4">
+                    <input  name="valor" type="text" value="{{ $dados->valor }}"  class="form-control input-md" required="">
 
                 </div>
             </div>

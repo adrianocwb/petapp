@@ -5,7 +5,7 @@
 
     <h2>Cadastrar novo funcionário</h2>
 
-    <form class="form-horizontal" action="/admin/funcionarios/cadastro" method ="post">
+    <form class="form-horizontal" action="/admin/funcionarios/cadastro" method="post">
         <fieldset>
             @csrf
 

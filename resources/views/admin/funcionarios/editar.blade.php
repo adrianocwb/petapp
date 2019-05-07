@@ -5,15 +5,16 @@
 
     <h2>Editar funcionário</h2>
 
-    <form class="form-horizontal" action="/admin/funcionarios/salvar" method ="post">
+    <form class="form-horizontal" action="/admin/funcionarios/salvar" method="post">
         @csrf
+
         <fieldset>
 
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="nome">Id</label>
                     #{{  $dados->id }}
-                <input name="id" type="hidden" value="{{$dados->id}}">
+                <input name="id" type="hidden" value="{{  $dados->id }}">
             </div>
 
             <div class="form-group">

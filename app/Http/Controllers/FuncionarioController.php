@@ -11,21 +11,21 @@ class FuncionarioController extends Controller
     {
         $funcionarios = Funcionario::all()->toArray();
 
-        return view("admin.servicos.listar", array(
+        return view("admin.funcionarios.listar", array(
             "dados" => $funcionarios
         ));
     }
 
     public function novo()
     {
-        return view("admin.servicos.novo");
+        return view("admin.funcionarios.novo");
     }
 
     public function editar($id)
     {
         $funcionario = Funcionario::find($id);
 
-        return view("admin.servicos.editar", array(
+        return view("admin.funcionarios.editar", array(
             "dados" => $funcionario
         ));
     }
@@ -35,17 +35,21 @@ class FuncionarioController extends Controller
         $funcionario = Funcionario::find($id);
         $funcionario->delete();
 
-        return redirect('/admin/servicos');
+        return redirect('/admin/funcionarios');
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function cadastrar(Request $request)
     {
         $funcionario = new Funcionario();
         $funcionario->nome = $request->nome;
         $funcionario->save();
 
-        return redirect('/admin/servicos');
+        return redirect('/admin/funcionarios');
     }
 
     /**
@@ -57,6 +61,6 @@ class FuncionarioController extends Controller
         $funcionario->nome = $request->nome;
         $funcionario->save();
 
-        return redirect('/admin/servicos');
+        return redirect('/admin/funcionarios');
     }
 }
