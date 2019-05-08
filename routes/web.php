@@ -36,8 +36,8 @@ Route::post('/admin/servicos/salvar', 'ServicosController@salvar');
 
 Route::get('/admin/agendamento', 'AgendamentoController@listar');
 Route::get('/admin/agendamento/novo', 'AgendamentoController@novo');
-Route::get('/admin/agendamento/editar/{id}', 'AgendamentoController@editar');
-Route::get('/admin/agendamento/deletar/{id}', 'AgendamentoController@deletar');
+Route::get('/admin/agendamento/confirmar/{id}', 'AgendamentoController@confirmar');
+Route::get('/admin/agendamento/cancelar/{id}', 'AgendamentoController@cancelar');
 
 Route::post('/admin/agendamento/cadastro', 'AgendamentoController@cadastrar');
 Route::post('/admin/agendamento/salvar', 'AgendamentoController@salvar');

@@ -9,12 +9,35 @@ use Illuminate\Http\Request;
 
 class AgendamentoController extends Controller
 {
-    public function listar()
+    public function listar(Request $request)
     {
-        $agendamento = Agendamento::all();
+
+        dump($request->all());
+        $filtro = array();
+        if ($request->get('status')) {
+            $filtro['status'] = $request->get('status');
+        }
+
+        if ($request->get('servico')) {
+            $filtro['servicos_id'] = $request->get('servico');
+        }
+        if ($request->get('profissional')) {
+            $filtro['funcionario_id'] = $request->get('profissional');
+        }
+
+
+        $agendamento = Agendamento::query()
+            ->where($filtro)
+            ->orderBy("dataHora", 'desc')
+            ->get();
+
+        $servicos = Servicos::all();
+        $prof = Funcionario::all();
 
         return view('admin.agendamento.listar', array(
-            "dados" => $agendamento
+            "dados" => $agendamento,
+            "servicos" => $servicos,
+            "profissionais" => $prof
         ));
     }
 
@@ -78,4 +101,21 @@ class AgendamentoController extends Controller
 
         return redirect('/admin/agendamento');
     }
+
+    public function cancelar($id)
+    {
+        $agendamento = Agendamento::find($id);
+        $agendamento->status = "CANCELADO";
+        $agendamento->save();
+        return redirect('/admin/agendamento');
+    }
+
+    public function confirmar($id)
+    {
+        $agendamento = Agendamento::find($id);
+        $agendamento->status = "CONFIRMADO";
+        $agendamento->save();
+        return redirect('/admin/agendamento');
+    }
+
 }

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Agendamento extends Model
 {
 
+    protected $dates = [
+      'dataHora'
+    ];
+
     public function servicos()
     {
         return $this->belongsTo(Servicos::class, 'servicos_id');
