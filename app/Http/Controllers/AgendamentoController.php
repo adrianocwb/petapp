@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class AgendamentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function listar(Request $request)
     {
 

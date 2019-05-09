@@ -40,7 +40,7 @@
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="/sair">{{ auth()->user()->name }} (Sair)</a>
         </li>
     </ul>
 </nav>
@@ -72,6 +72,13 @@
                         <a class="nav-link" href="/admin/funcionarios">
                             <span data-feather="users"></span>
                             Profissionais
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/usuarios">
+                            <span data-feather="users"></span>
+                            Usuários
                         </a>
                     </li>
 

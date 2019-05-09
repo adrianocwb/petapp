@@ -69,7 +69,6 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Data e Hora</th>
                 <th>Cliente</th>
                 <th>Serviço</th>

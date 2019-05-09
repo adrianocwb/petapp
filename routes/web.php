@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/contato', 'PaginaController@contato');
-Route::get('/admin', 'PaginaController@admin');
+Route::get('/admin', 'AgendamentoController@listar');
 
 Route::get('/admin/funcionarios', 'FuncionarioController@listar');
 Route::get('/admin/funcionarios/novo', 'FuncionarioController@novo');
@@ -41,4 +41,15 @@ Route::get('/admin/agendamento/cancelar/{id}', 'AgendamentoController@cancelar')
 
 Route::post('/admin/agendamento/cadastro', 'AgendamentoController@cadastrar');
 Route::post('/admin/agendamento/salvar', 'AgendamentoController@salvar');
+
+Route::get('/admin/usuarios', 'UsuarioController@listar');
+Route::get('/admin/usuarios/novo', 'UsuarioController@novo');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/sair/', 'PaginaController@logout');
 
