@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PaginaController extends Controller
 {
@@ -19,7 +19,7 @@ class PaginaController extends Controller
 
     public function logout()
     {
-        auth::logout();
+        Auth::logout();
         return redirect('/');
     }
 }

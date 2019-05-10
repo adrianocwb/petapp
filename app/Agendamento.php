@@ -8,8 +8,9 @@ class Agendamento extends Model
 {
 
     protected $dates = [
-      'dataHora'
+        'dataHora'
     ];
+
 
     public function servicos()
     {
@@ -20,4 +21,5 @@ class Agendamento extends Model
     {
         return $this->belongsTo(Funcionario::class, "funcionario_id");
     }
+
 }

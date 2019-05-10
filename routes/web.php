@@ -45,11 +45,11 @@ Route::post('/admin/agendamento/salvar', 'AgendamentoController@salvar');
 Route::get('/admin/usuarios', 'UsuarioController@listar');
 Route::get('/admin/usuarios/novo', 'UsuarioController@novo');
 
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/admin/usuarios/cadastrar', 'UsuarioController@cadastrar');
 
-Route::get('/sair/', 'PaginaController@logout');
+Route::get('/admin/usuarios/editar/{id}', 'UsuarioController@editar');
+Route::get('/admin/usuarios/deletar/{id}', 'UsuarioController@deletar');
 
+Route::get('/sair', 'PaginaController@logout');

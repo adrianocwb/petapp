@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class AgendamentoController extends Controller
 {
+
+    /**
+     * Adiciona segurança
+     * AgendamentoController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -17,18 +22,23 @@ class AgendamentoController extends Controller
     public function listar(Request $request)
     {
 
-        dump($request->all());
         $filtro = array();
-        if ($request->get('status')) {
+
+        if ($request->get('status'))
+        {
             $filtro['status'] = $request->get('status');
         }
 
-        if ($request->get('servico')) {
+        if ($request->get('servico'))
+        {
             $filtro['servicos_id'] = $request->get('servico');
         }
-        if ($request->get('profissional')) {
+
+        if ($request->get('profissional'))
+        {
             $filtro['funcionario_id'] = $request->get('profissional');
         }
+
 
 
         $agendamento = Agendamento::query()
@@ -112,6 +122,7 @@ class AgendamentoController extends Controller
         $agendamento = Agendamento::find($id);
         $agendamento->status = "CANCELADO";
         $agendamento->save();
+
         return redirect('/admin/agendamento');
     }
 
@@ -120,7 +131,7 @@ class AgendamentoController extends Controller
         $agendamento = Agendamento::find($id);
         $agendamento->status = "CONFIRMADO";
         $agendamento->save();
+
         return redirect('/admin/agendamento');
     }
-
 }

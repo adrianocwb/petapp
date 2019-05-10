@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class ServicosController extends Controller
 {
+
+    /**
+     * Adiciona segurança
+     * AgendamentoController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function listar()
     {
         $servicos = Servicos::all();
@@ -45,6 +55,19 @@ class ServicosController extends Controller
      */
     public function cadastrar(Request $request)
     {
+        $regras = array(
+            "nome" => "required|alpha_num|min:3",
+            "valor" => "required|numeric",
+
+        );
+
+        $msg = array(
+            "required" => "O campo é obrigatório",
+            "numeric" => "O Campo deve ser do tipo numerico"
+    );
+
+        $request->validate($regras);
+
         $servico = new Servicos();
         $servico->nome = $request->nome;
         $servico->valor = $request->valor;

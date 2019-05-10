@@ -11,7 +11,7 @@ class CreateAgendamentosTable extends Migration
      *
      * @return void
      */
-    public function up ()
+    public function up()
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->bigIncrements('id');

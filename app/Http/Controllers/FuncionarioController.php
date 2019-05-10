@@ -7,6 +7,16 @@ use App\Funcionario;
 
 class FuncionarioController extends Controller
 {
+
+    /**
+     * Adiciona segurança
+     * AgendamentoController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function listar()
     {
         $funcionarios = Funcionario::all()->toArray();

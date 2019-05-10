@@ -6,7 +6,7 @@
 
 
     <h2>Usuários cadastrados
-        <a href="/admin/servicos/novo" class="btn btn-primary">Cadastrar</a>
+        <a href="/admin/usuarios/novo" class="btn btn-primary">Cadastrar</a>
     </h2>
 
     <div class="table-responsive">
@@ -17,6 +17,7 @@
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Data de Cadastro</th>
+                <th>Ações</th>
             </tr>
             </thead>
 
@@ -24,11 +25,14 @@
 
             @foreach($dados as $usuario)
                 <tr>
-                    <td>{{ $usuario->id }}</td>
-                    <td>{{ $usuario->name }}</td>
-                    <td>{{ $usuario->email }}</td>
-                    <td>{{ $usuario->created_at }}</td>
-                    <td></td>
+
+                    <td>{{ $usuario["id"] }}</td>
+                    <td>{{ $usuario["nome"] }}</td>
+                    <td>{{ $usuario["email"]}}</td>
+                    <td>{{ $usuario["created_at"]  }}</td>
+                    <td><a href="/admin/usuarios/editar/{{ $usuario["id"] }}" class="btn btn-link">Editar</a>
+                        <a href="/admin/usuarios/deletar/{{ $usuario["id"] }}" class="btn btn-danger">Del</a></td>
+
 
                 </tr>
             @endforeach
