@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Agendamento;
 use App\Funcionario;
 use App\Servicos;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class AgendamentoController extends Controller
 {
@@ -24,21 +26,17 @@ class AgendamentoController extends Controller
 
         $filtro = array();
 
-        if ($request->get('status'))
-        {
+        if ($request->get('status')) {
             $filtro['status'] = $request->get('status');
         }
 
-        if ($request->get('servico'))
-        {
+        if ($request->get('servico')) {
             $filtro['servicos_id'] = $request->get('servico');
         }
 
-        if ($request->get('profissional'))
-        {
+        if ($request->get('profissional')) {
             $filtro['funcionario_id'] = $request->get('profissional');
         }
-
 
 
         $agendamento = Agendamento::query()
@@ -87,7 +85,7 @@ class AgendamentoController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function cadastrar(Request $request)
     {

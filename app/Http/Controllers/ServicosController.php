@@ -57,16 +57,15 @@ class ServicosController extends Controller
     {
         $regras = array(
             "nome" => "required|alpha_num|min:3",
-            "valor" => "required|numeric",
-
+            "valor" => "required|numeric"
         );
 
         $msg = array(
-            "required" => "O campo é obrigatório",
+            "required" => "O campo é obrigatorio",
             "numeric" => "O Campo deve ser do tipo numerico"
-    );
+        );
 
-        $request->validate($regras);
+        $request->validate($regras, $msg);
 
         $servico = new Servicos();
         $servico->nome = $request->nome;

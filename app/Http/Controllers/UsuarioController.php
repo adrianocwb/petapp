@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Funcionario;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,37 +24,19 @@ class UsuarioController extends Controller
 
     public function cadastrar(Request $request)
     {
-        $regras= [
+        $regras = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            ];
+        ];
 
         $request->validate($regras);
 
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password= Hash::make ($request->password);
+        $user->password = Hash::make($request->password);
         $user->save();
-
-        return redirect('/admin/usuarios');
-
-    }
-
-    public function editar($id)
-    {
-        $usuario = User::find($id);
-
-        return view('admin.usuario.editar', array(
-            "dados" => $usuario
-        ));
-    }
-
-    public function deletar($id)
-    {
-        $usuario = User::find($id);
-        $usuario->delete();
 
         return redirect('/admin/usuarios');
 

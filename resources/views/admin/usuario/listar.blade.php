@@ -25,14 +25,11 @@
 
             @foreach($dados as $usuario)
                 <tr>
-
-                    <td>{{ $usuario["id"] }}</td>
-                    <td>{{ $usuario["nome"] }}</td>
-                    <td>{{ $usuario["email"]}}</td>
-                    <td>{{ $usuario["created_at"]  }}</td>
-                    <td><a href="/admin/usuarios/editar/{{ $usuario["id"] }}" class="btn btn-link">Editar</a>
-                        <a href="/admin/usuarios/deletar/{{ $usuario["id"] }}" class="btn btn-danger">Del</a></td>
-
+                    <td>{{ $usuario->id }}</td>
+                    <td>{{ $usuario->name }}</td>
+                    <td>{{ $usuario->email }}</td>
+                    <td>{{ $usuario->created_at }}</td>
+                    <td></td>
 
                 </tr>
             @endforeach

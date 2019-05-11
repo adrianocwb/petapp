@@ -7,11 +7,9 @@
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            Erro ao Cadastrar
+            Erro ao cadastrar
         </div>
-        @endif
-
-        </divclass>
+    @endif
 
     <form class="form-horizontal" action="/admin/servicos/cadastro" method="post">
         <fieldset>
@@ -22,11 +20,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome">Nome</label>
                 <div class="col-md-4">
-                    <input id="nome" name="nome" type="text" value="{{old('nome')}}" placeholder=""
-                           class="form-control input-md" required="">
+                    <input id="nome" name="nome" type="text" value="{{ old("nome") }}" placeholder="" class="@error('nome') is-invalid @enderror form-control input-md" required="">
 
                     @error('nome')
-                    <div>O nome do serviço deve ter pelo menos 3 caracteres </div>
+                        <div class="invalid-feedback">O nome do serviço deve ter pelo menos 3 caracteres</div>
                     @enderror
 
                 </div>
@@ -35,11 +32,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome">Valor</label>
                 <div class="col-md-4">
-                    <input name="valor" type="text" value="{{old('valor')}}" placeholder=""
-                           class="form-control input-md" required="">
+                    <input  name="valor" type="text" value="{{ old("valor") }}" class="@error('valor') is-invalid @enderror form-control input-md" required="">
 
                     @error('valor')
-                    <div clas>{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
 
                 </div>

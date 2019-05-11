@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PaginaController@home');
+Route::post('/agendar', 'PaginaController@agendar');
+
 
 Route::get('/contato', 'PaginaController@contato');
 Route::get('/admin', 'AgendamentoController@listar');
@@ -45,11 +45,8 @@ Route::post('/admin/agendamento/salvar', 'AgendamentoController@salvar');
 Route::get('/admin/usuarios', 'UsuarioController@listar');
 Route::get('/admin/usuarios/novo', 'UsuarioController@novo');
 
-Auth::routes();
-
 Route::post('/admin/usuarios/cadastrar', 'UsuarioController@cadastrar');
 
-Route::get('/admin/usuarios/editar/{id}', 'UsuarioController@editar');
-Route::get('/admin/usuarios/deletar/{id}', 'UsuarioController@deletar');
+Auth::routes();
 
 Route::get('/sair', 'PaginaController@logout');
