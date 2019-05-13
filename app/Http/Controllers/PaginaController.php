@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Agendamento;
 use App\Funcionario;
+use App\Mail\Confirmacao;
 use App\Servicos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaginaController extends Controller
 {
@@ -50,13 +52,24 @@ class PaginaController extends Controller
 
         $request->validate($regras);
 
+        $servico = Servicos::find($request->servico);
+        $dia = \DateTime::createFromFormat("Y-m-d\TH:i", $request->data);
+
         $agendamento = new Agendamento();
-        $agendamento->dataHora= $request->data;
+        $agendamento->dataHora= $dia;
         $agendamento->servicos_id = $request->servico;
         $agendamento->funcionario_id = $request->profissional;
         $agendamento->cliente =$request->cliente;
         $agendamento->status="NOVO";
+        $agendamento->valor = $servico->valor;
 
         $agendamento->save();
+
+        $html = new Confirmacao($agendamento);
+        Mail:: to($request->email)->send($html);
+
+        return view("welcome", [
+            "enviado" => true
+    ]);
     }
 }

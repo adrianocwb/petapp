@@ -33,6 +33,12 @@
         <p class="lead">Um serviço exclusivo para clientes PetApp!</p>
         <hr class="my-4">
 
+        @if (isset($enviado) && $enviado == true)
+            <div>
+                Seu Serviço foi agendado e enviado o email para confirmação!
+            </div>
+        @else
+
         <form action ="/agendar" method="POST">
             @csrf
 
@@ -50,7 +56,7 @@
 
 
                 <div class="col">
-                    <select name="profissional" class="form-control @error('servico') is-invalid @enderror">
+                    <select name="profissional" class="form-control @error('profissional') is-invalid @enderror">
 
                         <option value=""> --Profissional --</option>
 
@@ -88,7 +94,7 @@
                 </div>
 
                 <div class="col">
-                    <input type="text" name="email" placeholder="Seu E-mail" class="form-control @error('servico') is-invalid @enderror">
+                    <input type="text" name="email" placeholder="Seu E-mail" class="form-control @error('email') is-invalid @enderror">
                     @error("email")
                     <div class="invalid-feedback">
                         Informe seu email corretamente
@@ -109,6 +115,7 @@
 
 
         </form>
+            @endif
 
     </div>
 
